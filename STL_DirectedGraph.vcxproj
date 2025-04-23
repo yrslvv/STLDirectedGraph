@@ -104,6 +104,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)/src/DirectedGraph</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +129,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\DirectedGraph\directed_graph.cpp" />
+    <ClCompile Include="src\DirectedGraph\graph_node.cpp" />
     <ClCompile Include="STL_DirectedGraph.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\DirectedGraph\directed_graph.h" />
+    <ClInclude Include="src\DirectedGraph\graph_node.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

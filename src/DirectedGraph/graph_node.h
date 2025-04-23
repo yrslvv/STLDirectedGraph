@@ -1,5 +1,5 @@
 #pragma once
-
+#include <set>
 template<typename T>
 class directed_graph;
 
@@ -33,7 +33,7 @@ namespace details {
 		[[nodiscard]] adjacency_list_type& get_adjacent_nodes_indices();
 
 		// Returns const reference to the adjacency list
-		[[nodiscard]] adjacency_list_type& get_adjacent_nodes_indices() const;
+		[[nodiscard]] const adjacency_list_type& get_adjacent_nodes_indices() const;
 
 		// ---------- Data Members ----------
 		T m_data;

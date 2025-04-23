@@ -18,5 +18,19 @@
     <ClCompile Include="STL_DirectedGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\DirectedGraph\graph_node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DirectedGraph\directed_graph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\DirectedGraph\graph_node.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DirectedGraph\directed_graph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

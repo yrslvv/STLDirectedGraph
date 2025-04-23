@@ -3,7 +3,6 @@
 #include <set>
 
 namespace details {
-	
 
 	template<typename T>
 	graph_node<T>::graph_node(directed_graph<T>* graph, const T& t)
@@ -25,6 +24,6 @@ namespace details {
 	typename graph_node<T>::adjacency_list_type& graph_node<T>::get_adjacent_nodes_indices(){return m_adjacentNodeIndices;}
 
 	template<typename T>
-	typename graph_node<T>::adjacency_list_type& graph_node<T>::get_adjacent_nodes_indices() const{return m_adjacentNodeIndices;}
+	typename const graph_node<T>::adjacency_list_type& graph_node<T>::get_adjacent_nodes_indices() const{return m_adjacentNodeIndices;}
 
 }
