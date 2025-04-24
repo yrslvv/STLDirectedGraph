@@ -2,10 +2,21 @@
 
 This project implements a **directed graph** data structure using various versions of the graph class, progressively adapting it to leverage the power and efficiency of **C++ Standard Library (STL)** containers. The project is a demonstration of my understanding of graph theory and C++ container design patterns, as well as my ability to optimize and refactor code.
 
-## What is there now (First Iteration)
+## 🚀 First Iteration
 
-In the first iteration of the **directed_graph** class, the focus was on implementing the basic functionality of a directed graph using custom classes and containers. The initial version leverages a simple `std::vector` of graph nodes and uses `std::set` for managing adjacency lists. Here are the key features of the first iteration:
+In the first iteration of the **directed_graph** class, the focus was on implementing the basic functionality of a directed graph using custom classes and containers. The initial version leverages a simple `std::vector` of graph nodes and uses `std::set` for managing adjacency lists.
 
+## 🚀 Second Iteration: Iterator Support
+In the second iteration of the **directed_graph** class, the primary enhancement was the addition of **custom iterator support**, enabling standard C++ iteration patterns over graph nodes.
+Key upgrades in this version:
+- **Read-only Iteration**: The `const_directed_graph_iterator` class was introduced to allow safe, read-only traversal of graph nodes using familiar iterator syntax (e.g., range-based for loops).
+- **Modifiable Iteration**: The `directed_graph_iterator` class extends the const iterator, enabling modification of node values during iteration.
+- **Bidirectional Capability**: Both iterators are **bidirectional**, supporting `++` and `--` operations for forward and reverse traversal.
+- **Iterator Integration**: The `directed_graph` class exposes `begin()` and `end()` functions (const and non-const versions), integrating seamlessly with C++ STL-style iteration.
+
+This iteration brings the graph structure closer to STL compliance, improves usability, and lays the foundation for more advanced algorithms and container behaviors in future versions.
+
+## Class Hierarchy
 - **Graph Nodes (`graph_node`)**: Each graph node stores a value and maintains a set of adjacent nodes, which are represented by indices in the node container.
   
 - **Graph Operations**: 
@@ -19,72 +30,27 @@ In the first iteration of the **directed_graph** class, the focus was on impleme
 
 - **Graph Serialization**: The graph can be converted to a `.dot` representation for visualization, making it easy to generate a graphical representation of the graph structure using Graphviz or similar tools.
 
-### Key Code Components
-
 1. **`directed_graph` Class**:
    - Manages the graph as a collection of nodes.
    - Provides methods for inserting, removing, and accessing nodes and edges.
    - Uses `std::vector` for storing nodes and `std::set` for adjacency lists.
+   - **Iterator support**: Exposes `begin()` and `end()` for range-based loops over nodes.
 
 2. **`graph_node` Class**:
    - Represents individual nodes in the graph.
    - Stores the node's value and a set of indices representing adjacent nodes.
    - Provides methods to access the node's value and its adjacency list.
+   - Encapsulates access to adjacency lists with proper iterators.
+
+3. **`const_directed_graph_iterator` Class**:
+   - A bidirectional iterator for read-only traversal of nodes in the graph.
+   - Works with `const` instances of the graph.
+   - Supports standard iterator operations: dereferencing, incrementing, comparison.
+
+4. **`directed_graph_iterator` Class**:
+   - Inherits from `const_directed_graph_iterator` and allows **modification** of node values.
+   - Used for non-const traversal and modification of graph nodes.
+   - Supports both pre/post increment and decrement operations.
 
 This initial implementation serves as the foundation for further optimization and adaptation to more efficient STL containers in subsequent versions of the project.
 
-### Example Code Snippet (First Iteration)
-
-Here’s how you can interact with the graph in the first iteration:
-
-```cpp
-#include "basic_directed_graph.h"
-
-using namespace std;
-int main()
-{
-	directed_graph<int> graph;
-	// Insert some nodes and edges.
-	graph.insert(11);
-	graph.insert(22);
-	graph.insert(33);
-	graph.insert(44);
-	graph.insert(55);
-	graph.insert_edge(11, 33);
-	graph.insert_edge(22, 33);
-	graph.insert_edge(22, 44);
-	graph.insert_edge(22, 55);
-	graph.insert_edge(33, 44);
-	graph.insert_edge(44, 55);
-	std::wcout << to_dot(graph, L"Graph1");
-
-	// Remove edge and a node
-	graph.erase_edge(22, 44);
-	graph.erase(44);
-	std::wcout << to_dot(graph, L"Graph1");
-	
-	cout << "Size: " << graph.size() << endl;
-
- return 0;
-}
-```
-### Output
-```
-digraph Graph1 {
-  11 -> 33
-		22 -> 33
-		22 -> 44
-		22 -> 55
-		33 -> 44
-		44 -> 55
-		55
-}
-digraph Graph1 {
-		11 -> 33
-		22 -> 33
-		22 -> 55
-		33
-		55
-}
-Size: 4
-```
