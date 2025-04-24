@@ -134,6 +134,8 @@
   <ItemGroup>
     <ClInclude Include="src\BasicDirectedGraph\basic_directed_graph.h" />
     <ClInclude Include="src\BasicDirectedGraph\basic_graph_node.h" />
+    <ClInclude Include="src\BasicDirectedGraph\const_directed_graph_iterator.h" />
+    <ClInclude Include="src\BasicDirectedGraph\directed_graph_iterator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

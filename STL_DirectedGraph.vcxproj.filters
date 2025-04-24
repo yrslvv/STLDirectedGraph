@@ -26,5 +26,11 @@
     <ClInclude Include="src\BasicDirectedGraph\basic_directed_graph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\BasicDirectedGraph\const_directed_graph_iterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BasicDirectedGraph\directed_graph_iterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
